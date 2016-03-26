@@ -1,0 +1,17 @@
+{
+    "name": "itjamie/PagerDutyWhosOncall",
+    "description": "Pagerduty class for checking who is oncall including override schedules",
+    "license": "GNU",
+    "keywords": ["pagerduty"],
+    "authors": [
+        {
+            "name": "Jamie Murphy",
+            "email": "jamiemurphyit@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+        "files": ["pagerduty.php"]
+    }
+}
