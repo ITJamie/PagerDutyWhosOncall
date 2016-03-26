@@ -1,5 +1,5 @@
 {
-    "name": "itjamie/PagerDutyWhosOncall",
+    "name": "itjamie/pagerdutywhosoncall",
     "description": "Pagerduty class for checking who is oncall including override schedules",
     "license": "GNU",
     "keywords": ["pagerduty"],
