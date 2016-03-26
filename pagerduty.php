@@ -38,7 +38,7 @@ class PagerDutyWhosOncall {
 		}
 	
 		$respose = file_get_contents($this->options['baseurl'] . $path . $params, false, $context);
-		if($this->options['debug'] !="false"){
+		if($this->options['debug'] ==true){
 			echo $respose;
 		}
 	
@@ -64,13 +64,13 @@ class PagerDutyWhosOncall {
 		);
 	
 		$json = $this->apiCall(sprintf('/schedules/%s/overrides', $scheduleid), $parameters) ;
-		if($this->options['debug'] !="false"){
+		if($this->options['debug'] ==true){
 			echo 'Json supplied by Pagerduty'.PHP_EOL;
 			print_r($json);
 			echo PHP_EOL;
 		}
 		if (false === ($scheddata = json_decode($json))) {
-			if($this->options['debug'] !="false"){
+			if($this->options['debug'] ==true){
 				echo "There was an error with the data from PagerDuty, please try again later.\n".PHP_EOL;
 			}
 			return false;
@@ -78,7 +78,7 @@ class PagerDutyWhosOncall {
 	
 		if (isset($scheddata->overrides['0'])){
 			if ($scheddata->overrides['0']->user->name == "") {
-				if($this->options['debug'] !="false"){
+				if($this->options['debug'] ==true){
 					echo "No data from Pagerduty for that date, sorry.\n".PHP_EOL;
 				}
 				return false;
@@ -113,20 +113,20 @@ class PagerDutyWhosOncall {
 		);
 	
 		$json = $this->apiCall(sprintf('/schedules/%s/entries', $scheduleid), $parameters);
-		if($this->options['debug'] !="false"){
+		if($this->options['debug'] ==true){
 			echo 'Json supplied by Pagerduty'.PHP_EOL;
 			print_r($json);
 			echo PHP_EOL;
 		}
 		if (false === ($scheddata = json_decode($json))) {
-			if($this->options['debug'] !="false"){
+			if($this->options['debug'] ==true){
 				echo "There was an error with the data from PagerDuty, please try again later.\n".PHP_EOL;
 			}
 			return false;
 		}
 
 		if ($scheddata->entries['0']->user->name == "") {
-			if($this->options['debug'] !="false"){
+			if($this->options['debug'] ==true){
 				echo "No data from Pagerduty for that date, sorry.\n".PHP_EOL;
 			}
 			return false;
