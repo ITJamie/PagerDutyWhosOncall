@@ -4,7 +4,7 @@ PHP PagerDuty WhosOnCall
 Installation
 -----------
 ``` sh
-$ composer install itjamie/PagerDutyWhosOncall
+$ composer require itjamie/pagerdutywhosoncall
 ```
 
 Basic Usage
@@ -16,7 +16,7 @@ Basic Usage
             'baseurl' => 'https://instancename.pagerduty.com/api/v1/', 
             'apikey' => 'placeholderforyourapi',
             'debug' => false,
-            'timezone' = 'UTC' // This is the timezone that will be passed to pagerduty. https://developer.pagerduty.com/documentation/rest/types#timezone
+            'timezone' => 'UTC' // This is the timezone that will be passed to pagerduty. https://developer.pagerduty.com/documentation/rest/types#timezone
             )
 	);
         

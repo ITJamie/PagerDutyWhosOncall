@@ -16,7 +16,7 @@ class PagerDutyWhosOncall {
 
 	}
 	
-	private function apiCall($path, $parameters = null) {
+	publicfunction apiCall($path, $parameters = null) {
 
 		$context = stream_context_create(array(
 			'http' => array(
@@ -49,7 +49,7 @@ class PagerDutyWhosOncall {
 
 
 
-	private function whoIsOnCallOverride($scheduleid, $time = null) {
+	publicfunction whoIsOnCallOverride($scheduleid, $time = null) {
 		//this function checks to see if any override entries exist. Used by the whoIsOncall function
    
 	
@@ -155,7 +155,7 @@ class PagerDutyWhosOncall {
 
 
 	// Returns an array of all contact details
-	private function getContactDetails($userid){
+	publicfunction getContactDetails($userid){
 		$json = $this->apiCall("users/".$userid."/contact_methods");
 
 		return(json_decode($json,true) );
@@ -163,7 +163,7 @@ class PagerDutyWhosOncall {
 	}
 
 	// return a phone number in full international format
-	private function getPhoneNumberForOncall($userid){
+	publicfunction getPhoneNumberForOncall($userid){
 		$contactarray= $this->getContactDetails($userid);
 		$foundaphone =0;
 		foreach($contactarray['contact_methods'] as $contactdetails){
