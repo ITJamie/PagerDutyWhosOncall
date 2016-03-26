@@ -53,8 +53,8 @@ class PagerDutyWhosOncall {
 		//this function checks to see if any override entries exist. Used by the whoIsOncall function
    
 	
-		$since = date('c', isset($time) ? $time : time());
-		$until = $since+60; // adds 60 seconds to since. sometimes pagerduty does not give any entries otherwise
+		$since = date('c', isset($time) ? $time : time() );
+		$until = date('c', isset($time) ? $time+60 : time()+60 ); // adds 60 seconds to since. sometimes pagerduty does not give any entries otherwise
 		
 		$parameters = array(
 			'since' => $since,
@@ -104,7 +104,7 @@ class PagerDutyWhosOncall {
 	public function whoIsOnCall($scheduleid, $timestamp = null) {
 
 		$since = date('c', isset($time) ? $timestamp : time());
-		$until = date('c', isset($time) ? $timetsamp : time()+60);
+		$until = date('c', isset($time) ? $timetsamp+60 : time()+60);
 		$parameters = array(
 			'since' => $since,
 			'until' => $until,
